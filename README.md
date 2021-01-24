@@ -1,4 +1,4 @@
-# Learning_to_Pick_with_3D_Point_Cloud
+# Learning to Pick with 3D Point Cloud
 > Assignment Project #2: 30% | Due Sunday, Apr 25
 
 ------
