@@ -231,7 +231,7 @@ class ImageCollection(object):
 
 if __name__ == "__main__":
     from deepclaw.driver.sensors.camera.Realsense_L515 import Realsense
-    c1 = Realsense('./configs/basic_config/camera_rs_d435_c1.yaml')
+    c1 = Realsense('./configs/basic_config/camera_rs_d435.yaml')
     # c2 = Realsense('./configs/basic_config/camera_rs_d435_c2.yaml')
     # test = ImageCollection(c1, c2)
     test = ImageCollection([c1])

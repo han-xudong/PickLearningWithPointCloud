@@ -29,6 +29,25 @@ from sklearn.decomposition import PCA
 from deepclaw.utils.ForegroundDetector import BackgroundDetector
 
 
+def rembg_detector(file_path):
+    """ Rembg is a tool to remove images background. https://github.com/danielgatis/rembg"""
+    with open(file_path, "rb") as input:
+        if hasattr(input, "buffer"):
+            ss = input.buffer.read()
+        else:
+            ss = input.read()
+    result = remove(ss)
+    img = Image.open(io.BytesIO(result)).convert("RGBA")
+    img = np.array(img)
+    # alpha value
+    mask_binary = img[:, :, 3]
+    mask_binary[mask_binary > 10] = 255
+    mask_binary[mask_binary <= 10] = 0
+    # plt.imshow(img)
+    # plt.show()
+    return mask_binary
+
+
 def get_file_path(folder_path, image_type='jpg'):
     """ find all files in a folder with same suffix"""
     file_path_list = glob.glob(folder_path + '/*.%s' % image_type)
@@ -46,8 +65,7 @@ def save_label(file_list, label_path, region_parameter, obj_class=None, detect_a
         # generate object mask
         bi_mask = None
         if detect_algo == 'rembg':
-            bi_mask = mask_detector.rembg_from_array(color_img)
-            # bi_mask = rembg_from_file(file_list[i])
+            bi_mask = rembg_detector(file_list[i])
         elif detect_algo == 'colorFilter':
             lower = np.array([10, 20, 0])
             upper = np.array([60, 80, 40])
@@ -146,14 +164,10 @@ def save_label(file_list, label_path, region_parameter, obj_class=None, detect_a
 
 
 if __name__ == "__main__":
-    # rembg_from_file('/home/bionicdl-saber/Music/00000000.jpg', show_image=True)
-    # xx_test = cv2.imread('/home/bionicdl-saber/Music/00000000.jpg')
-    # rembg_from_array(xx_test, show_image=True)
-    # exit()
-
     # object category
     obj_class = "paper"
-    folder_path = '/home/bionicdl-saber/Documents/GitHub/DeepClawDev/projects/ICRA2020/GraspingData/metal/*'
+    # folder_path = '/home/bionicdl-saber/Documents/GitHub/DeepClawDev/projects/ICRA2020/GraspingData/metal/*'
+    folder_path = '/home/alex/Me336/ME336-2021Spring/figure/*'
     """
     the image folder tree is:
     folder_path
@@ -205,10 +219,9 @@ if __name__ == "__main__":
     """
     folder_list = glob.glob(folder_path)
     folder_list.sort()
-    # col_min, col_max, row_min, row_max
     region_parameter = [200, 1120, 0, 720]
     camera_sel = "camera0"
-    label_folder_name = "labels_rembg_tt"
+    label_folder_name = "labels_rembg"
     for i in folder_list:
         print('folder name: ', i)
         color_img_path = os.path.join(i, camera_sel, "images", "color")
@@ -216,6 +229,7 @@ if __name__ == "__main__":
         # create label folder
         if not os.path.isdir(label_path):
             os.makedirs(label_path)
-        file_list = get_file_path(color_img_path, 'jpg')
+        # file_list = get_file_path(color_img_path, 'jpg')
+        file_list = get_file_path('/home/alex/Me336/ME336-2021Spring', 'jpg')
         file_list.sort()
         save_label(file_list, label_path, region_parameter, obj_class=obj_class)

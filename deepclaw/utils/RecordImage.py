@@ -57,7 +57,7 @@ class RecordImage(object):
 
 
 if __name__ == "__main__":
-    camera = Realsense('./configs/basic_config/camera_rs_d435_c1.yaml')
+    camera = Realsense('./configs/basic_config/camera_rs_d435.yaml')
     record_s = RecordImage(camera)
     # save video
     record_s.saveVideo(file_name='d435i_static_100.avi', video_duration=10)

@@ -1,5 +1,5 @@
 # help='model.pt path(s)'
-weights: './configs/ICRA2020-ur5-azure-rg6/best_38.pt'
+weights: './configs/basic_config/best_38.pt'
 img_size: 640
 conf_thres: 0.4
 iou_thres: 0.5

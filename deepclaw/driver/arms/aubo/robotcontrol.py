@@ -1,11 +1,13 @@
 #! /usr/bin/env python
 # coding=utf-8
-import time
-import libpy3auboi5
 import logging
-from logging.handlers import RotatingFileHandler
 import os
+
+import time
+from logging.handlers import RotatingFileHandler
 from math import pi
+
+import libpy3auboi5
 
 # 创建一个logger
 #logger = logging.getLogger()

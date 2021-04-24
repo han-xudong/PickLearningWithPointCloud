@@ -34,8 +34,14 @@ def image_callback(color_image, depth_image, intrinsics):
         # Get observed checkerboard center 3D point in camera space
         checkerboard_pix = np.round(corners_refined[4, 0, :]).astype(int)
         # the unit of depth in camera is meter
-        checkerboard_z = np.mean(np.mean(depth_image[checkerboard_pix[1] - 20:checkerboard_pix[1] + 20,
-                                         checkerboard_pix[0] - 20:checkerboard_pix[0] + 20]))
+        d= depth_image[checkerboard_pix[1],checkerboard_pix[0]]
+        if d <0.7:
+            print(12121)
+            print(checkerboard_pix[1],checkerboard_pix[0])
+            print(12121)
+        a = depth_image[checkerboard_pix[1] - 10:checkerboard_pix[1] + 10,checkerboard_pix[0] -10:checkerboard_pix[0] + 10]
+
+        checkerboard_z = np.mean(a[a>0])
         checkerboard_x = np.multiply(checkerboard_pix[0] - cx, checkerboard_z / fx)  # 1920, 1080
         checkerboard_y = np.multiply(checkerboard_pix[1] - cy, checkerboard_z / fy)  # 1920, 1080
         print("Found checkerboard, X,Y,Z = ", [checkerboard_x, checkerboard_y, checkerboard_z])
@@ -171,26 +177,34 @@ def matrix2rv(matrix4):
 
 
 if __name__ == "__main__":
-    collect_flag = False
-    calculate_flag = True
+    '''
+    collect_flag = True
+    calculate_flag = False
+    '''
+    collect_flag = True
+    calculate_flag = False
     if collect_flag:
         # collect calibration data
-        from deepclaw.driver.sensors.camera.AzureKinect import AzureKinect
         from deepclaw.driver.sensors.camera.Realsense_L515 import Realsense
-        from deepclaw.driver.arms.URController_rtde import URController
+        from deepclaw.driver.arms.Auboi5Controller import AuboController
         import time
-        camera = AzureKinect()
+        camera = Realsense('./configs/basic_config/camera_rs_d435.yaml')
         # camera = Realsense('./configs/basic_config/camera_rs.yaml')
         time.sleep(1)
         frame = camera.get_frame()
         color_img = frame.color_image[0]
         depth_img = frame.depth_image[0]
         # calibrate
-        robot = URController('./configs/basic_config/robot_ur5.yaml')
-        calib_ins = Calibration(robot, camera, './configs/ICRA2020-ur5-azure-rg6/calib_cfg.yaml', main_sensor='color')
+        robot = AuboController('./configs/basic_config/robot_auboi5.yaml')
+        calib_ins = Calibration(robot, camera, './configs/basic_config/cali3D.yaml', main_sensor='color')
         calib_ins.run()
 
     if calculate_flag:
-        c_t_b = load_calibration_matrix('./configs/ICRA2020-ur5-azure-rg6/calib_Azure.npz')
-        np.save('./configs/ICRA2020-ur5-azure-rg6/E_T_B_Azure.npy', c_t_b)
+        c_t_b = load_calibration_matrix('./configs/calib_3d.npz')
+        np.save('./configs/E_T_B.npy', c_t_b)
         print(c_t_b)
+
+
+
+
+

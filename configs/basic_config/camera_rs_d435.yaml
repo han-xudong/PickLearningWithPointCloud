@@ -1,6 +1,6 @@
 #camera parameters
 name: D435
-serial_number:
+serial_number: 'None'
 # For D435, the resolution of RGB camera 320*180, 320*240, 424*240, 640*360, 640*480, 848*480, 960*540, 1280*720, 1920*1080
 # For 60 fps, the max resolution is 960*540. for 1280*720, 1920*1080 ,the max fps is 30.
 # for L515, the resolution of rgb is 1280*720, 60fps; 1920*1080, 30fps.
