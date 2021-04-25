@@ -8,7 +8,7 @@ This experiment is mainly divided into two parts. They are 6D calibration and ob
 
 ## Hardware List
 The hardware equipment required for this experiment is as follows:
-- camera: Intel Realsense
+- camera: Intel Realsense D435
 - mechanical arm: Aubo i5
 - calculation platform: MSI Trident, i7-10700, GTX1660 6G, 8G DDR4, Ubuntu OS
 - calibrators: 3D-printed L-shape Calibration Target with printed 4x4 Checkerboard
