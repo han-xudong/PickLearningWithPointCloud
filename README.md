@@ -10,10 +10,10 @@ This experiment is mainly divided into two parts. They are 6D calibration and ob
 The hardware equipment required for this experiment is as follows:
 - camera: Intel Realsense
 - mechanical arm: Aubo i5
-- calculation platform: MSI Trident, i7-10700, GTX1660 6G, 8G DDR4
-- calibrators: 3D-printed nib (for calibration on a flat surface)
-- clamping device:  pneumatic clamping jaw (air compressor and air valve)
-- target objects:  plastic bottles, cans
+- calculation platform: MSI Trident, i7-10700, GTX1660 6G, 8G DDR4, Ubuntu OS
+- calibrators: 3D-printed L-shape Calibration Target with printed 4x4 Checkerboard
+- clamping device: pneumatic clamping jaw (air compressor and air valve)
+- target objects: plastic bottles, cans
 
 ## Algorithm
 In this project, we mainly used the GeoGrasp algorithm.
