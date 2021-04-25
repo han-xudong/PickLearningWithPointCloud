@@ -4,7 +4,7 @@
 ------
 
 ## Target
-This experiment is mainly divided into two parts. They are 6D calibration and object capture respectively. The goal of 2D calibration is to establish the transformation basis of the camera coordinate system and the manipulator coordinate system, that is, the hand-eye transformation matrix used to describe the relative spatial pose of the manipulator and the camera. On this basis, object grasping is to get the grasping coordinates through the camera image recognition and control the movement of the manipulator to grasp.
+This experiment is mainly divided into two parts. They are 6D calibration and object grasping respectively. The 6D calibration is to establish the transformation basis of the camera coordinate system and the robot coordinate system with 3D point cloud information, that is, the hand-eye transformation matrix used to describe the relative spatial pose of the robot and the camera. On this basis, object grasping is to get the grasping coordinates through the 3D point cloud information by camera and control the movement of the robot to grasp.
 
 ## Hardware List
 The hardware equipment required for this experiment is as follows:
