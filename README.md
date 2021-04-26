@@ -50,7 +50,16 @@ realsense-viewer
 ```
 
 ## Experiment
-
+1. Start the device, calibration, and walk the grid
+2. Open the realsense-viewer, click Stereo Module, select four points and record, enter the plane_calculate.py, create the plane_model, and enter the main function
+![img](https://bionicdl.feishu.cn/space/api/box/stream/download/asynccode/?code=M2FhMmI2YjhhNTVkMGI0ZjUxNWVjYTc0OGY3ZDQ4NmRfalJSemUzd0FCdTN2dDVrRnlMZUdQNlJrNnkwc2dvOVBfVG9rZW46Ym94Y250bVl5a2lQSmxNcEtOdmlzUlpkTHVoXzE2MTkzNjc5MTE6MTYxOTM3MTUxMV9WNA)
+![img](https://bionicdl.feishu.cn/space/api/box/stream/download/asynccode/?code=OGQ0YmViN2RkMDgyNzE3N2ViNGFlZmExZGI3ZTBhMTVfbDVyM3lESEY1aUxCc2ZFTmYzUDk2TmE0SXpwc0hwM1pfVG9rZW46Ym94Y25vSjJ6ZkoxZmFzdFUwTzhqMEFOajFjXzE2MTkzNjc5MzM6MTYxOTM3MTUzM19WNA)
+3. Install the grasper and pay attention to the safety height
+![img](https://bionicdl.feishu.cn/space/api/box/stream/download/asynccode/?code=M2FiNDEyMmQyYzhiNGVjODQ1YmZjNzM4ZTk0ZmM5MjNfeG9ZbXNXNnJCODlxcEpMbGtRRzBabnRKS0s1dVFJYUNfVG9rZW46Ym94Y25FUlF4VTJiRVZFU2ZQTUZDcTRkMFlnXzE2MTkzNjc4NTg6MTYxOTM3MTQ1OF9WNA)
+4. Read the crop_bounding from the realsense-viewer
+![img](https://bionicdl.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTIyYjAzYjBmZTFmNGE1Y2EyMTNkNTZhMjFhZTQ1NWZfTDZucjJVb0dkRm9ITFBBT2g2a2ZWVkV3ZEpxNFFHRDBfVG9rZW46Ym94Y25hSnh3UTNmRnU0Mk1kYTZrdndhWjdjXzE2MTkzNjc4MTA6MTYxOTM3MTQxMF9WNA)
+5. Run the robot arm
+6. Verify the algorithm by changing the position of the bottle
 
 ## Video
 https://www.bilibili.com/video/BV1R64y1m7nk/
@@ -68,3 +77,4 @@ https://www.bilibili.com/video/BV1R64y1m7nk/
 - The position of the empty bottle will also affect the grasping result.If the mouth of the bottle is facing the base of the mechanical arm, it will lead to a large tilt of the clamp, which will not be able to accurately clamp the bottle.
 
 ## Conclusion
+Compared with region proposal-based method, Geograsp do not have to collect multi-angle images to form 3D point cloud, which means fast and effective. Though general method may provide better accuracy, Geograsp is enough for garbage identification. Information 
