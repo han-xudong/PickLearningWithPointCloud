@@ -76,4 +76,13 @@ https://www.bilibili.com/video/BV1R64y1m7nk/
 - The position of the empty bottle will also affect the grasping result.If the mouth of the bottle is facing the base of the mechanical arm, it will lead to a large tilt of the clamp, which will not be able to accurately clamp the bottle.
 
 ## Conclusion
-The main algorithm we used in this project was GeoGRASP. Compared with region proposal-based method, Geograsp do not have to collect multi-angle images to form 3D point cloud, which means fast and effective. Though general method may provide better accuracy, Geograsp is enough for garbage identification. In the course of the experiment, we encountered some problems, which were mentioned in the previous section. With the joint efforts of all, the problem was solved and the task was completed.
+The main algorithm we used in this project was GeoGrasp. Compared with region proposal-based method, Geograsp do not have to collect multi-angle images to form 3D point cloud, which means fast and effective. Though general method may provide better accuracy, Geograsp is enough for garbage identification. In the course of the experiment, we encountered some problems, which were mentioned in the previous section. With the joint efforts of all, the problem was solved and the task was completed.
+
+- HAN Xudong: project management, result expression
+- ZHANG Zicong: hardware design and preparation
+- SONG Yichen: algorithm repetition and debugging
+- DENG Ranbao: algorithm repetition and debugging
+- WANG Haowen: 3D point cloud calibrition
+- LIU Zhengtao: hardware preparation
+- ZHANG Dapeng: system debugging
+- LIU Yangchenguang: problem record and summary
