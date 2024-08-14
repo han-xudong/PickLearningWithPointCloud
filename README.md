@@ -30,9 +30,9 @@ After segmenting out the objects, we have to find the grasping areas for potenti
 
 The last step is to evaluate the contact points to determine the best grasping points. First, define θ be a grasp configuration whose contact points are one point q_i from each of the voxelized grasping areas. And then a ranking function is proposed to choose the best points by assessing the potential stability of the grasp, mainly considering the following four factors: 1) Distance to the cutting plane; 2) Curvature of the point; 3) Antipodal configuration; 4) Perpendicular grasp. Finally, the following ranking function is proposed to assess the potential stability of a grasp configuration:
 
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/equation_1.png)
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/equation_2.png)
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/equation_3.png)
+![image](figure/equation_1.png)
+![image](figure/equation_2.png)
+![image](figure/equation_3.png)
 
 ## Preparation
 1. Connect the power supply and plug in the AUBO.
@@ -51,10 +51,10 @@ realsense-viewer
 
 ## Experiment
 1. Start the device, calibration, and walk the grid
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/aubo_calibrition.png)
+![image](figure/aubo_calibrition.png)
 2. Open the realsense-viewer, click Stereo Module, select four points and record, enter the plane_calculate.py, create the plane_model, and enter the main function
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/realsense_plane_calculation.png)
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/plane_calculate.png)
+![image](figure/realsense_plane_calculation.png)
+![image](figure/plane_calculate.png)
 3. Setup the grasper and pay attention to the safety height
 4. Read the crop_bounding from the realsense-viewer
 5. Run the robot arm
@@ -68,10 +68,10 @@ https://www.bilibili.com/video/BV1R64y1m7nk/
 - Calibration plate problem: In the beginning, our calibration plate was broken.We use tape to hold it together and continue the 3D calibration.However, such calibration plates actually have a small bending, and the small errors will gradually accumulate and become larger in the process of iterative calibration, eventually resulting in a large deviation in the 3D calibration results.
 - The offset of the calibration plate relative to the end flange of the manipulator in CAIL-3D file was not modified, which would cause the calibration to fail.
 - You need to change the storage path of the computed results at the end of the code in EyeOnBase.py file.The previous code did not load the matrix results we calculated to the file that we read later, so we need to unify the file names before and after.
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/EyeOnBase_Problem.png)
+![image](figure/EyeOnBase_Problem.png)
 - Camera problem: When our camera is in STEREO Module state, the 3D view is opened. Its depth view has poor effect, with many black areas and missing information, which leads to the failure of our early calibration.
 - Pay attention to the stability of the camera's USB interface.Sometimes the USB interface of the camera will be unstable, and the results shown below will appear.A new socket is needed.
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/camera_USB_problem.jpg)
+![image](figure/camera_USB_problem.jpg)
 - When using Realsense-Viewer to customize a rectangular area during the 6D fetching process, the scope should not be too small, otherwise it is easy to cause the recognition target to exceed the recognition area.
 - The position of the empty bottle will also affect the grasping result.If the mouth of the bottle is facing the base of the mechanical arm, it will lead to a large tilt of the clamp, which will not be able to accurately clamp the bottle.
 
