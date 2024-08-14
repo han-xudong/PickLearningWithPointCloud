@@ -22,7 +22,7 @@ GeoGrasp is an algorithm based on 3D point clouds, which originally was designed
 
 The general procedure of the algorithm could be divided into 3 parts. Scene segmentation, locating grasping areas and ranking grasping points, as shown in figure below.
 
-![image](https://github.com/MEE336-Red-Team/Learning_to_Pick_with_3D_Point_Cloud/blob/main/figure/framework_of_Geograsp.png)
+![image](figure/framework_of_Geograsp.png)
 
 The first step is to segment the potential objects out of the scene. Euclidean Cluster Extraction from the Point Cloud Library is used in the original algorithm. Other clustering methods like gaussian mixture model might behave better than simply calculating the Euclidean distances. However, it’s not guaranteed that the processing speed would satisfy the need of real-time usage.
 
